@@ -1,4 +1,38 @@
 <?php require_once('./database/connection.php') ?>
+<?php
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    echo 'good to go';
+}
+$id = "";
+
+$sql = "SELECT * FROM `courses` WHERE `id` = $id";
+$result = $conn->query($sql);
+$course = $result->fetch_assoc();
+
+$name = $course['name'];
+$duration = $course['duration'];
+
+if (isset($_POST['submit'])) {
+    $name = htmlspecialchars($_POST['name']);
+    $duration = htmlspecialchars($_POST['duration']);
+
+    if (empty($name)) {
+        $error = "Enter course name!";
+    } elseif (empty($duration)) {
+        $error = "Enter course duration!";
+    } else {
+        $sql = "UPDATE `courses` SET `name` = '$name', `duration` = '$duration' WHERE `id` = $id";
+        if ($conn->query($sql)) {
+            $success = "SuccessFully Edit!";
+        } else {
+            $error = "Failed to Edit!";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once('./includes/head.php'); ?>
@@ -17,7 +51,7 @@
                         <a href="./show-courses.php" class="btn btn-outline-primary">Back</a>
                     </div>
                 </div>
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" class="mx-5">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>?id=<?php echo $id; ?>" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label h4">Name</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name!" value="">

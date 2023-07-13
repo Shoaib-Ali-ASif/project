@@ -1,4 +1,33 @@
 <?php require_once('./database/connection.php') ?>
+<?php
+$error = $id = $name = $duration = "";
+
+if (isset($_POST['submit'])) {
+    $name = htmlspecialchars($_POST['name']);
+    $duration = htmlspecialchars($_POST['duration']);
+
+
+
+    if (empty($name)) {
+        $error = "Enter the name!";
+    } elseif (empty($duration)) {
+        $error = "Enter the duration!";
+    } else {
+        $sql = "SELECT * FROM `courses` WHERE `id` = '$id'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows == 0) {
+            $sql = "INSERT INTO `courses`(`name`, `duration`) VALUES ('$name','$duration')";
+            $is_created = $conn->query($sql);
+            if ($is_created) {
+                $success = 'SuccessFully Added!';
+            } else {
+                $error = 'failed!';
+            }
+        }
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +47,9 @@
                         <a href="./show-courses.php" class="btn btn-outline-primary">Back</a>
                     </div>
                 </div>
+
+                <?php require_once('./includes/alerts.php'); ?>
+
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" class="mx-5">
                     <div class="mb-3">
                         <label for="name" class="form-label h4">Name</label>

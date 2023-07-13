@@ -5,6 +5,7 @@ $result = $conn->query($sql);
 $courses = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,42 +34,42 @@ $courses = $result->fetch_all(MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table table-bordered">
-                                    <?php
-                            if ($result->num_rows > 0) { ?>
-                                        <thead>
-                                            <tr>
-
-                                                <th>Name</th>
-                                                <th>Duration</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
                                         <?php
-                                    $sr = 1;
-                                    foreach ($courses as $user) { ?>
-                                        <tr>
-                                            <tr>
+                                        if (count($courses) > 0) { ?>
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr. No.</th>
+                                                    <th>Name</th>
+                                                    <th>Duration</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $sr = 1;
+                                                foreach ($courses as $course) { ?>
+                                                    <tr>
+                                                    <tr>
+                                                        <td><?php echo $sr++; ?></td>
+                                                        <td><?php echo $course['name'] ?></td>
+                                                        <td><?php echo $course['duration'] ?></td>
 
-                                                <td><?php echo $courses['name'] ?></td>
-                                                <td><?php echo $courses['duration'] ?></td>
 
-                                                
-                                                <td>
-                                                    <a href="./edit-course.php" class="btn btn-primary">Edit</a>
-                                                    <a href="" class="btn btn-danger">Delete</a>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                    }
-                                    ?>
-                                        </tbody>
+                                                        <td>
+                                                            <a href="./edit-course.php" class="btn btn-primary">Edit</a>
+                                                            <a href="./delete-course.php" class="btn btn-danger">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
                                         <?php
-                            } else { ?>
-                                <div class="alert alert-danger m-0">No record found!</div>
-                            <?php
-                            }
-                            ?>
+                                        } else { ?>
+                                            <div class="alert alert-danger m-0">No record found!</div>
+                                        <?php
+                                        }
+                                        ?>
                                     </table>
                                 </div>
                             </div>
