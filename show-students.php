@@ -41,7 +41,7 @@
                                                 <td>1</td>
                                                 <td>ali@gamil.com</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary">Edit</a>
+                                                    <a href="./edit-student.php" class="btn btn-primary">Edit</a>
                                                     <a href="" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>

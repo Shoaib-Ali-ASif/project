@@ -40,7 +40,7 @@
                                                 <td>ali</td>
                                                 <td>4 weeks</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary">Edit</a>
+                                                    <a href="./edit-course.php" class="btn btn-primary">Edit</a>
                                                     <a href="" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
