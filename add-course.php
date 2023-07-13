@@ -12,11 +12,10 @@ if (isset($_POST['submit'])) {
         $error = "Enter the name!";
     } elseif (empty($duration)) {
         $error = "Enter the duration!";
-    } else {
-        $sql = "SELECT * FROM `courses` WHERE `id` = '$id'";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows == 0) {
+    } else
+     {
+        
+        {
             $sql = "INSERT INTO `courses`(`name`, `duration`) VALUES ('$name','$duration')";
             $is_created = $conn->query($sql);
             if ($is_created) {
@@ -53,11 +52,11 @@ if (isset($_POST['submit'])) {
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" class="mx-5">
                     <div class="mb-3">
                         <label for="name" class="form-label h4">Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name!" value="">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name!" value="<?php echo $name; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="duration" class="form-label h4">Duration</label>
-                        <input type="text" class="form-control" name="duration" id="duration" placeholder="Enter Course Duration!" value="">
+                        <input type="text" class="form-control" name="duration" id="duration" placeholder="Enter Course Duration!" value="<?php echo $duration; ?>">
                     </div>
                     <div>
                         <input type="submit" name="submit" value="Submit" class="btn btn-primary">

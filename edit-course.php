@@ -4,8 +4,8 @@
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
 }
-$id = '';
-$sql = "SELECT * FROM `courses` WHERE `id` = $id";
+
+$sql = "SELECT * FROM `courses` WHERE `courses`.`id` = $id";
 $result = $conn->query($sql);
 $course = $result->fetch_assoc();
 
