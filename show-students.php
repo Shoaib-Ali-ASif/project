@@ -18,7 +18,7 @@
                             <h1 class="h1 mb-3">Students</h1>
                         </div>
                         <div class="col-6 text-end">
-                            <a href="./add-student.php" class="btn btn-outline-primary">Add Students</a>
+                            <a href="./add-student.php" class="btn btn-outline-primary">Add Student</a>
                         </div>
                     </div>
                     <div class="row">
@@ -30,7 +30,7 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Roll.No.</th>
-                                                <th>Duration</th>
+                                                <th>email</th>
 
                                                 <th>Action</th>
                                             </tr>

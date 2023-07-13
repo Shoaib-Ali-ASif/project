@@ -28,7 +28,7 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Sr. No.</th>
+                                        
                                                 <th>Name</th>
                                                 <th>Duration</th>
                                                 <th>Action</th>
@@ -36,7 +36,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                               
                                                 <td>ali</td>
                                                 <td>4 weeks</td>
                                                 <td>
