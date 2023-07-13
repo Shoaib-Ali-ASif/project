@@ -1,3 +1,5 @@
+<?php require_once('./database/connection.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once('./includes/head.php'); ?>

@@ -1,3 +1,10 @@
+<?php require_once('./database/connection.php') ?>
+<?php
+$sql = "SELECT * FROM `courses`";
+$result = $conn->query($sql);
+$courses = $result->fetch_all(MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,25 +33,42 @@
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table table-bordered">
+                                    <?php
+                            if ($result->num_rows > 0) { ?>
                                         <thead>
                                             <tr>
-                                        
+
                                                 <th>Name</th>
                                                 <th>Duration</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php
+                                    $sr = 1;
+                                    foreach ($courses as $user) { ?>
+                                        <tr>
                                             <tr>
-                                               
-                                                <td>ali</td>
-                                                <td>4 weeks</td>
+
+                                                <td><?php echo $courses['name'] ?></td>
+                                                <td><?php echo $courses['duration'] ?></td>
+
+                                                
                                                 <td>
                                                     <a href="./edit-course.php" class="btn btn-primary">Edit</a>
                                                     <a href="" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
+                                            <?php
+                                    }
+                                    ?>
                                         </tbody>
+                                        <?php
+                            } else { ?>
+                                <div class="alert alert-danger m-0">No record found!</div>
+                            <?php
+                            }
+                            ?>
                                     </table>
                                 </div>
                             </div>
