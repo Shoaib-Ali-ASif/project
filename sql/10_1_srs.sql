@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 05:48 PM
+-- Generation Time: Jul 13, 2023 at 09:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -32,6 +32,17 @@ CREATE TABLE `courses` (
   `name` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`, `duration`) VALUES
+(23, 'graphic design', '3 months'),
+(24, 'Digital Marketing', '2 months'),
+(25, 'Programming', '4 months'),
+(26, 'Chapa Course', 'Infinity Months'),
+(27, 'Free Course', '1 Week');
 
 -- --------------------------------------------------------
 
@@ -99,7 +110,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `students`

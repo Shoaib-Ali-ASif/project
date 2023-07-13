@@ -12,10 +12,7 @@ if (isset($_POST['submit'])) {
         $error = "Enter the name!";
     } elseif (empty($duration)) {
         $error = "Enter the duration!";
-    } else
-     {
-        
-        {
+    } else { {
             $sql = "INSERT INTO `courses`(`name`, `duration`) VALUES ('$name','$duration')";
             $is_created = $conn->query($sql);
             if ($is_created) {
