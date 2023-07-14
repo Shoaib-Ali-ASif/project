@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 09:49 PM
+-- Generation Time: Jul 14, 2023 at 09:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -38,7 +38,7 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `name`, `duration`) VALUES
-(23, 'graphic design', '3 months'),
+(23, 'graphic designing', '3 months'),
 (24, 'Digital Marketing', '2 months'),
 (25, 'Programming', '4 months'),
 (26, 'Chapa Course', 'Infinity Months'),
@@ -56,6 +56,14 @@ CREATE TABLE `students` (
   `roll_no.` int(11) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `roll_no.`, `email`) VALUES
+(3, 'SHOAIB', 124, 'shoaib2@gmail.com'),
+(5, 'S h e b i', 1234, 'eagleshebi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -116,7 +124,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

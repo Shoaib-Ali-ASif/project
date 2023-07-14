@@ -54,8 +54,8 @@ $students = $result->fetch_all(MYSQLI_ASSOC);
                                                         <td><?php echo $student['roll_no.'] ?></td>
                                                         <td><?php echo $student['email'] ?></td>
                                                         <td>
-                                                            <a href="./edit-student.php?id=<?php echo $course['id']; ?>" class="btn btn-primary">Edit</a>
-                                                            <a href="./delete-student.php?id=<?php echo $course['id']; ?>" class="btn btn-danger">Delete</a>
+                                                            <a href="./edit-student.php?id=<?php echo $student['id']; ?>" class="btn btn-primary">Edit</a>
+                                                            <a href="./delete-student.php?id=<?php echo $student['id']; ?>" class="btn btn-danger">Delete</a>
                                                         </td>
                                                     </tr>
                                                 <?php
