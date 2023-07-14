@@ -1,3 +1,10 @@
+<?php require_once('./database/connection.php') ?>
+<?php
+$sql = "SELECT * FROM `students`";
+$result = $conn->query($sql);
+$students = $result->fetch_all(MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,26 +33,41 @@
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Roll.No.</th>
-                                                <th>email</th>
-
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>ali</td>
-                                                <td>1</td>
-                                                <td>ali@gamil.com</td>
-                                                <td>
-                                                    <a href="./edit-student.php" class="btn btn-primary">Edit</a>
-                                                    <a href="" class="btn btn-danger">Delete</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                        <?php
+                                        if (count($students) > 0) { ?>
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr. No.</th>
+                                                    <th>Name</th>
+                                                    <th>Roll.No.</th>
+                                                    <th>email</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $sr = 1;
+                                                foreach ($students as $student) { ?>
+                                                    <tr>
+                                                        <td><?php echo $sr++; ?></td>
+                                                        <td><?php echo $student['name'] ?></td>
+                                                        <td><?php echo $student['roll_no.'] ?></td>
+                                                        <td><?php echo $student['email'] ?></td>
+                                                        <td>
+                                                            <a href="./edit-student.php?id=<?php echo $course['id']; ?>" class="btn btn-primary">Edit</a>
+                                                            <a href="./delete-student.php?id=<?php echo $course['id']; ?>" class="btn btn-danger">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        <?php
+                                        } else { ?>
+                                            <div class="alert alert-danger m-0">No record found!</div>
+                                        <?php
+                                        }
+                                        ?>
                                     </table>
                                 </div>
                             </div>
