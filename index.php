@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-if(isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     header('location: ./dashboard.php');
 }
 
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$new_password'";
         $result = $conn->query($sql);
         $user = $result->fetch_assoc();
-        if($user) {
+        if ($user) {
             $_SESSION['user_id'] = $user['id'];
             // $_SESSION['user_name'] = $user['name'];
             header('location: ./dashboard.php');
