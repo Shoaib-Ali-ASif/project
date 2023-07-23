@@ -3,7 +3,7 @@
 
 if (isset($_POST['submit'])) {
   $id = $_POST['search'];
-  $sql = "SELECT * FROM `students` WHERE id LIKE '%$id%' OR name LIKE '%$id%' OR email LIKE '%$id%'";
+  $sql = "SELECT * FROM `students` WHERE name LIKE '%$id%'";
   $result = mysqli_query($conn, $sql);
 }
 ?>
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                <?php require_once('./includes/alerts.php'); ?>
+                  <?php require_once('./includes/alerts.php'); ?>
                   <div class="container">
                     <form method="post">
                       <input type="text" name="search" placeholder="Search student" class="form-control">
