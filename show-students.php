@@ -51,7 +51,7 @@ $students = $result->fetch_all(MYSQLI_ASSOC);
                                                     <tr>
                                                         <td><?php echo $sr++; ?></td>
                                                         <td><?php echo $student['name'] ?></td>
-                                                        <td><?php echo $student['roll_no.'] ?></td>
+                                                        <td><?php echo $student['roll_no'] ?></td>
                                                         <td><?php echo $student['email'] ?></td>
                                                         <td>
                                                             <a href="./edit-student.php?id=<?php echo $student['id']; ?>" class="btn btn-primary">Edit</a>

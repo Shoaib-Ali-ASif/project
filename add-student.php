@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $result = $conn->query($sql);
 
         if($result->num_rows == 0) {
-            $sql = "INSERT INTO `students`(`name`, `email`, `roll_no.`) VALUES ('$name','$email','$roll_no')";
+            $sql = "INSERT INTO `students`(`name`, `email`, `roll_no`) VALUES ('$name','$email','$roll_no')";
             $is_created = $conn->query($sql);
             if($is_created) {
                 $success = 'SuccessFully Added!';

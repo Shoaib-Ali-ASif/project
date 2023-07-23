@@ -27,9 +27,9 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="./show-registrations.php">
+                <a class="sidebar-link" href="./search-students.php">
                     <i class="align-middle" data-feather="book"></i>
-                    <span class="align-middle">Registrations</span>
+                    <span class="align-middle">Search</span>
                 </a>
             </li>
         </ul>
