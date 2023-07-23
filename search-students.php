@@ -3,7 +3,7 @@
 
 if (isset($_POST['submit'])) {
   $id = $_POST['search'];
-  $sql = "SELECT * FROM `students` WHERE name LIKE '%$id%'";
+  $sql = "SELECT * FROM `students` WHERE name LIKE '$id'";
   $result = mysqli_query($conn, $sql);
 }
 ?>
