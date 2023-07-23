@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
+                <?php require_once('./includes/alerts.php'); ?>
                   <div class="container">
                     <form method="post">
                       <input type="text" name="search" placeholder="Search student" class="form-control">
